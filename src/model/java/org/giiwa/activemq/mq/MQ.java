@@ -83,12 +83,12 @@ public final class MQ {
 
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-        OpLog.info(activemq.class, "startup", "connected activemq with [" + url + "]", null, null);
+        OpLog.info(activemq.class, "startup", "connected ActiveMQ with [" + url + "]", null, null);
 
       } catch (Exception e) {
         log.error(e.getMessage(), e);
 
-        OpLog.info(activemq.class, "startup", "failed activemq with [" + url + "]", null, null);
+        OpLog.info(activemq.class, "startup", "failed ActiveMQ with [" + url + "]", null, null);
       }
     }
 
