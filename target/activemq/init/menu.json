@@ -1,0 +1,13 @@
+[{
+			'name' : 'admin',
+			'childs' : [{
+						name : 'menu.system',
+						childs : [{
+									name : 'menu.activemq',
+									load : '/admin/activemq',
+									access : 'access.config.admin',
+									seq : 1020,
+									classes : 'icon-tree'
+								}]
+					}]
+		}]

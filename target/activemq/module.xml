@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module version="1.0">
+  <id>257</id>
+  <name>activemq</name>
+  <package>org.giiwa.activemq.web</package>
+  <screenshot>/images/demo_screenshot.png</screenshot>
+  <version>1.0.1</version>
+  <build>1609211750</build>
+  <enabled>true</enabled>
+  <readme>Active mq module</readme>
+  <listener>
+    <class>org.giiwa.activemq.web.ActivemqListener</class>
+  </listener>
+  <setting>
+    <!--TODO, remove it, please refer module.get(d1)-->
+    <param name="d1" value="1"/>
+  </setting>
+  <filter>
+    <!--TODO, remove it, please refer web.IFilter-->
+    <pattern>/user/login</pattern>
+    <class>org.giiwa.demo.web.UserFilter</class>
+  </filter>
+  <depends>
+    <!--TODO, remove it-->
+    <module name="default" version="1.1"/>
+    <jar url="http://giiwa.org/aaa_1.1.jar"/>
+  </depends>
+</module>

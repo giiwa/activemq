@@ -1,0 +1,19 @@
+
+<div class='head'>$lang.get('activemq.setting.title')</div>
+
+#parse('/widget/widget.message.html')
+
+<div class='tabs'>
+	<a href='/admin/activemq' >$lang.get('a.activemq')</a>
+	<a href='/admin/activemq/setting' class='selected'>$lang.get('a.setting')</a>
+</div>
+
+<form action='/admin/activemq/setting'  method='post' class='form' enctype="multipart/form-data">
+	<div><label><h3>$lang.get('activemq.enabled'):</h3><input type='checkbox' name='enabled' #if($global.getString('activemq.enabled', 'off')=='on') checked #end/><g>$lang.get('activemq.enabled.hint')</g></label></div>
+	<div><label><h3>$lang.get('activemq.url'):</h3><input type='text' style='width:40%' name='url' value="$!global.getString('activemq.url', 'failover:(tcp://[host]:61616)?timeout=3000&jms.prefetchPolicy.all=2&jms.useAsyncSend=true')"/><g>$lang.get('activemq.url.hint')</g></label></div>
+	<div><label><h3>$lang.get('activemq.group'):</h3><input type='text' name='group' value="$!global.getString('activemq.group', 'demo')"/><g>$lang.get('activemq.group.hint')</g></label></div>
+	<div><label><h3>$lang.get('activemq.user'):</h3><input type='text' name='user' value="$!global.getString('activemq.user', '')"/><g>$lang.get('activemq.user.hint')</g></label></div>
+	<div><label><h3>$lang.get('activemq.passwd'):</h3><input type='password' name='passwd' value="$!global.getString('activemq.passwd', '')"/><g>$lang.get('activemq.passwd.hint')</g></label></div>
+	
+	<button type='submit'>$lang.get('btn.save')</button>
+</form>
