@@ -25,10 +25,12 @@ import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.giiwa.activemq.web.admin.activemq;
 import org.giiwa.core.bean.TimeStamp;
 import org.giiwa.core.bean.X;
 import org.giiwa.core.json.JSON;
 import org.giiwa.core.task.Task;
+import org.giiwa.framework.bean.OpLog;
 
 /**
  * the distribute message system, <br>
@@ -81,8 +83,12 @@ public final class MQ {
 
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
+        OpLog.info(activemq.class, "startup", "connected activemq with [" + url + "]", null, null);
+
       } catch (Exception e) {
         log.error(e.getMessage(), e);
+
+        OpLog.info(activemq.class, "startup", "failed activemq with [" + url + "]", null, null);
       }
     }
 
@@ -102,17 +108,15 @@ public final class MQ {
     if (session != null)
       return true;
 
-    enabled = "yes".equals(conf.getString("mq.enabled", "no"));
+    enabled = true;
 
-    if (enabled) {
-      url = conf.getString("mq.url", ActiveMQConnection.DEFAULT_BROKER_URL);
-      user = conf.getString("mq.user", ActiveMQConnection.DEFAULT_USER);
-      password = conf.getString("mq.password", ActiveMQConnection.DEFAULT_PASSWORD);
+    url = conf.getString("activemq.url", ActiveMQConnection.DEFAULT_BROKER_URL);
+    user = conf.getString("activemq.user", ActiveMQConnection.DEFAULT_USER);
+    password = conf.getString("activemq.passwd", ActiveMQConnection.DEFAULT_PASSWORD);
 
-      group = conf.getString("mq.group", X.EMPTY);
-      if (!X.EMPTY.equals(group) && !group.endsWith(".")) {
-        group += ".";
-      }
+    group = conf.getString("activemq.group", X.EMPTY);
+    if (!group.endsWith(".")) {
+      group += ".";
     }
 
     return init();
@@ -127,6 +131,9 @@ public final class MQ {
    * @throws JMSException
    */
   public static Receiver bind(String name, IStub stub, Mode mode) throws JMSException {
+    OpLog.info(activemq.class, "bind", "[" + name + "], stub=" + stub.getClass().toString() + ", mode=" + mode, null,
+        null);
+
     return new Receiver(name, stub, mode);
   }
 

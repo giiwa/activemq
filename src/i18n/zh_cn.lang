@@ -1,4 +1,4 @@
-a.activemq=Logs
+a.activemq=ActiveMQ
 activemq.group=Group
 activemq.group.hint=相同分布式系统，组名相同，否则无法收发消息
 activemq.logs.title=ActiveMQ日志
@@ -6,3 +6,9 @@ activemq.setting.title=ActiveMQ设置
 activemq.url=Url
 activemq.url.hint=ActiveMQ 服务器URL
 menu.activemq=ActiveMQ
+activemq.enabled=开启
+activemq.enabled.hint=是否开启ActiveMQ
+activemq.passwd=密码
+activemq.passwd.hint=
+activemq.user=用户
+activemq.user.hint=
