@@ -49,10 +49,13 @@ public class activemq extends Model {
   @Path(path = "setting", login = true, access = "access.config.admin")
   public void setting() {
     if (method.isPost()) {
+      Global.setConfig("activemq.enabled", X.isSame("on", this.getString("enabled")) ? "on" : "off");
       Global.setConfig("activemq.url", this.getString("url"));
       Global.setConfig("activemq.group", this.getString("group"));
+      Global.setConfig("activemq.user", this.getString("user"));
+      Global.setConfig("activemq.passwd", this.getString("passwd"));
 
-      this.set(X.MESSAGE, lang.get("save.success"));
+      this.set(X.MESSAGE, lang.get("restart.required"));
     }
     this.show("/admin/activemq.setting.html");
   }
