@@ -1,11 +1,11 @@
 package org.giiwa.activemq.web.admin;
 
+import org.giiwa.activemq.mq.Demo;
 import org.giiwa.core.bean.Beans;
 import org.giiwa.core.bean.X;
 import org.giiwa.core.json.JSON;
 import org.giiwa.core.bean.Helper.V;
 import org.giiwa.core.bean.Helper.W;
-import org.giiwa.activemq.bean.Demo;
 import org.giiwa.framework.web.Model;
 import org.giiwa.framework.web.Path;
 
