@@ -1,16 +1,13 @@
 [{
 			'name' : 'admin',
 			'childs' : [{
-						name : 'menu.demo',
-						classes : 'icon-gift',
-						access : 'access.demo.admin',
-						seq : 1040,
+						name : 'menu.system',
 						childs : [{
-									name : 'menu.demo1',
-									load : '/admin/demo',
-									access : 'access.demo.admin',
-									seq : 10,
-									classes : 'icon-glass'
+									name : 'menu.activemq',
+									load : '/admin/activemq',
+									access : 'access.config.admin',
+									seq : 1020,
+									classes : 'icon-tree'
 								}]
 					}]
 		}]

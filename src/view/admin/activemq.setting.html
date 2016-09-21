@@ -1,0 +1,16 @@
+
+<div class='head'>$lang.get('activemq.setting.title')</div>
+
+#parse('/widget/widget.message.html')
+
+<div class='tabs'>
+	<a href='/admin/activemq' >$lang.get('a.activemq')</a>
+	<a href='/admin/activemq/setting' class='selected'>$lang.get('a.setting')</a>
+</div>
+
+<form action='/admin/activemq/setting'  method='post' class='form' enctype="multipart/form-data">
+	<div><label><h3>$lang.get('activemq.url'):</h3><input type='text' name='url' value="$!global.getString('activemq.url', '')"/><g>$lang.get('activemq.url.hint')</g></label></div>
+	<div><label><h3>$lang.get('activemq.group'):</h3><input type='text' name='group' value="$!global.getString('activemq.group', '')"/><g>$lang.get('activemq.group.hint')</g></label></div>
+	
+	<button type='submit'>$lang.get('btn.save')</button>
+</form>
