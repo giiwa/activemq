@@ -6,7 +6,7 @@
   <package>org.giiwa.activemq.web</package>
   <screenshot>/images/demo_screenshot.png</screenshot>
   <version>1.0.1</version>
-  <build>1609211750</build>
+  <build>1609211809</build>
   <enabled>true</enabled>
   <readme>Active mq module</readme>
   <listener>
